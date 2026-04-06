@@ -47,7 +47,6 @@ jobs:
 
           sed -i "s|image:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/qtec-devops-task:${SHORT_SHA}|g" k8s/deployment.yaml
 
-      # 3️⃣ Commit & Push
       - name: Commit and Push Changes
         run: |
           cd qtec-devops-app-deploy
