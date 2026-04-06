@@ -16,4 +16,4 @@ COPY --from=builder /app /app
 
 EXPOSE 5000
 
-CMD ["python3", "main.py"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app", "--workers", "3"]
