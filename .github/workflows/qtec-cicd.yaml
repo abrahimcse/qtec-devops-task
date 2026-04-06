@@ -42,12 +42,12 @@ jobs:
       # 1️⃣ Clone GitOps repo
       - name: Clone Deployment Repository
         run: |
-          git clone --branch main https://abrahimcse:${{ secrets.ACCESS_TOKEN }}@github.com/abrahimcse/qtec-devops-task-deploy.git
+          git clone --branch main https://abrahimcse:${{ secrets.ACCESS_TOKEN }}@github.com/abrahimcse/qtec-devops-app-deploy.git
 
       # 2️⃣ Update image tag
       - name: Update Deployment File
         run: |
-          cd qtec-devops-task-deploy
+          cd qtec-devops-app-deploy
           SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
 
           sed -i "s|image:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/qtec-devops-task:${SHORT_SHA}|g" k8s/deployment.yaml
@@ -55,10 +55,10 @@ jobs:
       # 3️⃣ Commit & Push
       - name: Commit and Push Changes
         run: |
-          cd qtec-devops-task-deploy
+          cd qtec-devops-app-deploy
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
           git add k8s/deployment.yaml
           git commit -m "Update image tag to ${SHORT_SHA}"
-          git push https://abrahimcse:${{ secrets.ACCESS_TOKEN }}@github.com/abrahimcse/qtec-devops-task-deploy.git
+          git push https://abrahimcse:${{ secrets.ACCESS_TOKEN }}@github.com/abrahimcse/qtec-devops-app-deploy.git
