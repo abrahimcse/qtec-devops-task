@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: CI/CD Pipeline with GitOps
 
 on:
   push:
@@ -6,20 +6,52 @@ on:
       - main
 
 jobs:
-  docker-build-push:
+  build-push-update:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/qtec-devops-task
     steps:
-      - name: Checkout code
+      # 1️⃣ Checkout main repo
+      - name: Checkout repo
         uses: actions/checkout@v3
 
+      # 2️⃣ Login DockerHub
       - name: Docker login
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      # 3️⃣ Build Docker image
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/qtec-devops-task:latest .
+        run: |
+          IMAGE_TAG=$(date +%Y%m%d%H%M%S)
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+          docker build -t $DOCKER_IMAGE:$IMAGE_TAG .
 
-      - name: Push Docker image to DockerHub
-        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/qtec-devops-task:latest
+      # 4️⃣ Push Docker image
+      - name: Push Docker image
+        run: |
+          docker push $DOCKER_IMAGE:$IMAGE_TAG
+          docker tag $DOCKER_IMAGE:$IMAGE_TAG $DOCKER_IMAGE:latest
+          docker push $DOCKER_IMAGE:latest
+
+      # 5️⃣ Checkout GitOps repo (deployment manifests)
+      - name: Checkout GitOps repo
+        uses: actions/checkout@v3
+        with:
+          repository: abrahimcse/qtec-devops-task-deploy
+          token: ${{ secrets.ACCESS_TOKEN }}
+          path: gitops
+
+      # 6️⃣ Update deployment.yaml image tag
+      - name: Update image tag in deployment.yaml
+        run: |
+          DEPLOY_FILE=gitops/k8s/deployment.yaml
+          sed -i "s|image:.*|image: $DOCKER_IMAGE:$IMAGE_TAG|g" $DEPLOY_FILE
+          cd gitops
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add $DEPLOY_FILE
+          git commit -m "Update image tag to $IMAGE_TAG"
+          git push origin main
