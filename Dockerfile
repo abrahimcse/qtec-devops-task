@@ -10,4 +10,4 @@ WORKDIR /app
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY app/ .
 EXPOSE 5000
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "main:app"]
+CMD ["python3", "main.py"]

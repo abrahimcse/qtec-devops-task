@@ -1,24 +1,24 @@
-from flask import Flask, request, jsonify
-import time
+from flask import Flask, request, jsonify, send_from_directory
+import os
 
 app = Flask(__name__)
+requests_handled = 0
 
-# Simple in-memory store
-data_store = []
+# Serve index.html directly from app/ folder
+@app.route('/')
+def home():
+    return send_from_directory(os.path.dirname(__file__), 'index.html')
 
-@app.route("/status", methods=["GET"])
+@app.route('/status', methods=['GET'])
 def status():
-    return jsonify({"status": "running", "requests_handled": len(data_store)})
+    return jsonify({"status": "running", "requests_handled": requests_handled})
 
-@app.route("/data", methods=["POST"])
-def post_data():
-    try:
-        payload = request.json
-        data_store.append(payload)
-        return jsonify({"message": "Data received", "current_count": len(data_store)}), 201
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
+@app.route('/data', methods=['POST'])
+def data():
+    global requests_handled
+    requests_handled += 1
+    message = request.json.get("message", "")
+    return jsonify({"message": "Data received", "current_count": requests_handled})
 
 if __name__ == "__main__":
-    # Run app with host 0.0.0.0 to be accessible in container
-    app.run(host="0.0.0.0", port=5000, threaded=True)
+    app.run(host="0.0.0.0", port=5000)
