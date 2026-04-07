@@ -4,8 +4,41 @@
     <title>QTEC DevOps Task</title>
 </head>
 <body>
-    <h1>Welcome to QTEC DevOps Task Application</h1>
-    <p>Status: Running</p>
-    <p>Use GET /status and POST /data for API calls.</p>
+    <h1>🚀 QTEC DevOps Task Running</h1>
+
+    <h2>Status Check</h2>
+    <button onclick="getStatus()">Check Status</button>
+    <pre id="statusResult"></pre>
+
+    <h2>Send Data</h2>
+    <input type="text" id="message" placeholder="Enter message">
+    <button onclick="sendData()">Send</button>
+    <pre id="dataResult"></pre>
+
+    <script>
+        function getStatus() {
+            fetch('/status')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById('statusResult').innerText = JSON.stringify(data, null, 2);
+                });
+        }
+
+        function sendData() {
+            const message = document.getElementById('message').value;
+
+            fetch('/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('dataResult').innerText = JSON.stringify(data, null, 2);
+            });
+        }
+    </script>
 </body>
 </html>
