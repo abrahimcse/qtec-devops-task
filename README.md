@@ -248,39 +248,39 @@ qtec-devops-app-deploy/
 
 ### 🔹 Application Running
 
-*(Add screenshot here)*
+![*(Application)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Applicaion%20running.png)
 
 ### 🔹 Kubernetes Pods
 
-[*()*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/app-pod.png)
+![*()*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/app-pod.png)
 
 ### 🔹 ArgoCD
 
-[*(ArgoCD)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/ArgoCD.png)
+![*(ArgoCD)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/ArgoCD.png)
 
 ### 🔹 API Response
 
 * Status API:
-  [*(Status)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/status-api.png)
+![*(Status)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/status-api.png)
 
 * Data API:
-  [*(Data)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/data-api.png)
+![*(Data)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/data-api.png)
 
 ### 🔹 Docker Hub
 
-[*(Docker Registry)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Dockerhub.png)
+![*(Docker Registry)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Dockerhub.png)
 
 ### 🔹 Nginx Reverse Proxy
 
-*(Add screenshot here)*
+![*(Nginx)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Nginx.png)
 
 ### 🔹 Monitoring (Grafana)
 
-[*(Grafana)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/grafana.png)
+![*(Grafana)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/grafana.png)
 
 ### 🔹 Application Logs
 
-[*(Logs)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/apps-log.png)
+![*(Logs)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/apps-log.png)
 
 ---
 
