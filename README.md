@@ -250,9 +250,17 @@ qtec-devops-app-deploy/
 
 ![*(Application)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Applicaion%20running.png)
 
+### 🔹 CICD
+
+![*(CICD)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/CICD.png)
+
+### 🔹 Nginx Reverse Proxy
+
+![*(Nginx)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Nginx.png)
+
 ### 🔹 Kubernetes Pods
 
-![*()*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/app-pod.png)
+![*(Kubernetes Pods)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/app-pod.png)
 
 ### 🔹 ArgoCD
 
@@ -270,9 +278,6 @@ qtec-devops-app-deploy/
 
 ![*(Docker Registry)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Dockerhub.png)
 
-### 🔹 Nginx Reverse Proxy
-
-![*(Nginx)*](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Nginx.png)
 
 ### 🔹 Monitoring (Grafana)
 
