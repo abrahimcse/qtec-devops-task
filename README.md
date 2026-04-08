@@ -52,7 +52,7 @@ curl -X POST http://localhost:5000/data \
 
 ---
 
-## 🐳 2. Containerization (Docker)
+## 2. Containerization (Docker)
 
 * Base Image: `python:3.11-slim`
 * Dependencies managed via `requirements.txt`
