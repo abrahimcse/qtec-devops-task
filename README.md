@@ -55,6 +55,7 @@ A lightweight API service was used to simulate a backend system.
 * In-memory request tracking
 
 📸 **Application Running**
+
 ![Application](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Applicaion%20running.png)
 
 📸 **API Response**
