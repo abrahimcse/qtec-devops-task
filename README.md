@@ -79,6 +79,7 @@ The application is containerized using Docker to ensure consistency across envir
 * Optimized multi-stage build
 
 📸 **Docker Build & Registry**
+
 ![Docker](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Dockerhub.png)
 
 ---
@@ -99,6 +100,7 @@ Application deployed using Kubernetes with high availability.
 * Load balancing
 
 📸 **Kubernetes Pods**
+
 ![K8s](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/app-pod.png)
 
 ---
@@ -114,6 +116,7 @@ NGINX is used as an entry point for users instead of exposing Kubernetes directl
 * Hide internal NodePort
 
 📸 **NGINX Setup**
+
 ![Nginx](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/Nginx.png)
 
 ---
@@ -139,6 +142,7 @@ NGINX is used as an entry point for users instead of exposing Kubernetes directl
    * Automatically syncs and deploys to Kubernetes
 
 📸 **CI/CD Pipeline**
+
 ![CICD](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/CICD.png)
 
 ---
@@ -150,6 +154,7 @@ Separate repository for Kubernetes manifests:
 👉 https://github.com/abrahimcse/qtec-devops-app-deploy
 
 📸 **ArgoCD**
+
 ![ArgoCD](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/ArgoCD.png)
 
 ---
@@ -181,6 +186,7 @@ Zero downtime is achieved using:
 * Provides visibility into system performance and helps in proactive issue detection.
 
 📸 **Grafana Dashboard**
+
 ![Grafana](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/grafana.png)
 
 ---
@@ -193,6 +199,7 @@ Zero downtime is achieved using:
 * ArgoCD logs
 
 📸 **Application Logs**
+
 ![Logs](https://github.com/abrahimcse/qtec-devops-task/blob/main/images/apps-log.png)
 
 ---
