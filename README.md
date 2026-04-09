@@ -1,6 +1,6 @@
-# 🚀 Qtec DevOps Engineer Practical Task
+# Qtec DevOps Engineer Practical Task
 
-## 🧰 Technologies & Tools Used
+## Technologies & Tools Used
 
 * **NGINX** – Reverse Proxy & Traffic Routing
 * **Docker** – Containerization
@@ -14,7 +14,7 @@
 
 ---
 
-## 📌 Objective
+## Objective
 
 Design and deploy a production-style system demonstrating:
 
@@ -22,15 +22,9 @@ Design and deploy a production-style system demonstrating:
 * CI/CD automation
 * Traffic management
 * Observability
-
-The system exposes:
-
-* **GET API → `/status`**
-* **POST API → `/data`**
-
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```
 User → Nginx → Kubernetes Service (NodePort) → Pods (Application)
@@ -44,7 +38,7 @@ User → Nginx → Kubernetes Service (NodePort) → Pods (Application)
 
 ---
 
-## ⚙️ 1. Application Layer
+## 1. Application Layer
 
 A lightweight API service was used to simulate a backend system.
 
@@ -52,7 +46,6 @@ A lightweight API service was used to simulate a backend system.
 
 * Health check endpoint (`/status`)
 * Data ingestion endpoint (`/data`)
-* In-memory request tracking
 
 📸 **Application Running**
 
@@ -68,7 +61,7 @@ A lightweight API service was used to simulate a backend system.
 
 ---
 
-## 🐳 2. Containerization (Docker)
+## 2. Containerization (Docker)
 
 The application is containerized using Docker to ensure consistency across environments.
 
@@ -84,7 +77,7 @@ The application is containerized using Docker to ensure consistency across envir
 
 ---
 
-## ☸️ 3. Kubernetes Deployment
+## 3. Kubernetes Deployment
 
 Application deployed using Kubernetes with high availability.
 
@@ -105,7 +98,7 @@ Application deployed using Kubernetes with high availability.
 
 ---
 
-## 🌐 4. Reverse Proxy (NGINX)
+## 4. Reverse Proxy (NGINX)
 
 NGINX is used as an entry point for users instead of exposing Kubernetes directly.
 
@@ -121,7 +114,7 @@ NGINX is used as an entry point for users instead of exposing Kubernetes directl
 
 ---
 
-## 🔄 5. CI/CD Pipeline
+## 5. CI/CD Pipeline
 
 ### Tools:
 
@@ -147,7 +140,7 @@ NGINX is used as an entry point for users instead of exposing Kubernetes directl
 
 ---
 
-## 🔁 GitOps Repository
+## GitOps Repository
 
 Separate repository for Kubernetes manifests:
 
@@ -159,7 +152,7 @@ Separate repository for Kubernetes manifests:
 
 ---
 
-## ⚡ Zero-Downtime Deployment
+## Zero-Downtime Deployment
 
 Zero downtime is achieved using:
 
@@ -168,11 +161,12 @@ Zero downtime is achieved using:
 * Readiness & liveness probes
 
 ➡️ New pods become ready before old pods terminate
+
 ➡️ No service interruption during deployments
 
 ---
 
-## 📊 6. Monitoring & Observability
+## 6. Monitoring & Observability
 
 ### Tools Used:
 
@@ -191,9 +185,8 @@ Zero downtime is achieved using:
 
 ---
 
-## 📝 Logging
+## Logging
 
-* Application logs (Flask)
 * Kubernetes logs (`kubectl logs`)
 * NGINX access & error logs
 * ArgoCD logs
@@ -204,7 +197,7 @@ Zero downtime is achieved using:
 
 ---
 
-## 🚀 Scalability
+## Scalability
 
 The system is designed with a stateless architecture, enabling horizontal scalability.
 
@@ -225,7 +218,7 @@ kubectl scale deployment qtec-devops-task --replicas=5
 
 ---
 
-## ☁️ Deployment Environment
+## Deployment Environment
 
 * Deployed on **Ubuntu Virtual Machine**
 
@@ -242,7 +235,7 @@ kubectl scale deployment qtec-devops-task --replicas=5
 
 ---
 
-## 🔐 Security Practices
+## Security Practices
 
 * No hardcoded credentials
 * Environment-based configuration
@@ -251,7 +244,7 @@ kubectl scale deployment qtec-devops-task --replicas=5
 
 ---
 
-## 🧱 Infrastructure as Code (IaC)
+## Infrastructure as Code (IaC)
 
 Terraform was **not used in this implementation**,
 but I have hands-on experience with:
@@ -262,7 +255,7 @@ but I have hands-on experience with:
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ### Application Repository
 
@@ -290,7 +283,7 @@ qtec-devops-app-deploy/
 
 ---
 
-## ✅ Summary
+## Summary
 
 This project demonstrates:
 
@@ -302,7 +295,7 @@ This project demonstrates:
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 This project demonstrates a production-oriented DevOps workflow, covering the full lifecycle from code commit to deployment and monitoring.
 
